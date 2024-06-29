@@ -1,2 +1,2 @@
-# My-Coding-Assignments-
+# My-Coding-Assignments
 new repo
