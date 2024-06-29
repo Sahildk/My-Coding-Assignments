@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .slider-container {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .slide img {
+        width: 100%;
+        height: auto;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 18px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slide">
+        <img src="image1.jpg" alt="Image 1" />
+      </div>
+      <div class="slide">
+        <img src="image2.jpg" alt="Image 2" />
+      </div>
+      <div class="slide">
+        <img src="image3.jpg" alt="Image 3" />
+      </div>
+      <div class="slide">
+        <img src="image4.jpg" alt="Image 4" />
+      </div>
+
+      <button class="prev" onclick="changeSlide(-1)">&#10094; Prev</button>
+      <button class="next" onclick="changeSlide(1)">Next &#10095;</button>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+      const slides = document.getElementsByClassName("slide");
+
+      function showSlide(n) {
+        if (n >= slides.length) {
+          slideIndex = 0;
+        } else if (n < 0) {
+          slideIndex = slides.length - 1;
+        } else {
+          slideIndex = n;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[slideIndex].style.display = "block";
+      }
+
+      function changeSlide(n) {
+        showSlide((slideIndex += n));
+      }
+
+      showSlide(slideIndex);
+    </script>
+  </body>
+</html>

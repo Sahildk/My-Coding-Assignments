@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Click Event</title>
+  </head>
+  <body>
+    <script>
+      // Create a button element
+      let button = document.createElement("button");
+      button.textContent = "Click me"; // Set the button text
+
+      // Append the button to the body (or any other element you want to append it to)
+      document.body.appendChild(button);
+
+      // Add a click event listener to the button
+      button.addEventListener("click", function () {
+        console.log("Button clicked!");
+      });
+    </script>
+  </body>
+</html>

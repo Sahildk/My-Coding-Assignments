@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Lowest Value in Array</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding-top: 190px;
+      }
+      #container {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #9676ee;
+        padding: 20px;
+        border-radius: 9px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="number"],
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #e0a969;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Find Lowest Value in Array:</h2>
+      <b><label for="numbers">Enter numbers (use commas):</label></b>
+      <input type="text" id="numbers" name="numbers" required /><br />
+      <button onclick="findLowest()">Find Lowest Value</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      function findLowest() {
+        var inputString = document.getElementById("numbers").value;
+        var numbersArray = inputString.split(",").map(Number);
+
+        if (numbersArray.some(isNaN)) {
+          alert("Please enter valid numbers separated with commas");
+          return;
+        }
+
+        var lowestValue = Math.min(...numbersArray);
+        document.getElementById("result").innerHTML =
+          "Lowest value: " + lowestValue;
+      }
+    </script>
+  </body>
+</html>

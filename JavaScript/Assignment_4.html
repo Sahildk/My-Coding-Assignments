@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GCD Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0efef;
+        text-align: center;
+        padding-top: 190px;
+      }
+      #container {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #108080;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="number"],
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #000000;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>GCD Calculator</h2>
+      <label for="num1">Enter first number:</label>
+      <input type="number" id="num1" name="num1" required /><br />
+      <label for="num2">Enter second number:</label>
+      <input type="number" id="num2" name="num2" required /><br />
+      <button onclick="calculateGCD()">Calculate GCD</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      function calculateGCD() {
+        var num1 = parseInt(document.getElementById("num1").value);
+        var num2 = parseInt(document.getElementById("num2").value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Please enter valid numbers");
+          return;
+        }
+
+        var gcdResult = gcd(num1, num2);
+        document.getElementById("result").innerHTML =
+          "GCD of " + num1 + " and " + num2 + " is " + gcdResult;
+      }
+
+      function gcd(a, b) {
+        // Implementing Euclidean algorithm to find GCD
+        while (b !== 0) {
+          var temp = b;
+          b = a % b;
+          a = temp;
+        }
+        return a;
+      }
+    </script>
+  </body>
+</html>
